@@ -1,13 +1,10 @@
 package com.poly.lab3.controller;
 
 import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.poly.lab3.entity.Staff;
-
 
 @Controller
 public class B4StaffController {
