@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Danh Sách Staff</title>
+</head>
+<body>
+<div th:each="staff, st : ${list}">
+    <img th:src="@{|/photos/${staff.photo}|}" style="height:40px">
+    <b th:text="@{|${st.count}. |}"></b>
+    <b th:text="${#strings.capitalizeWords(staff.fullname)}"></b>,
+    
+    <th:block th:if="${staff.gender != null}"> 
+        - Giới tính:
+        <span th:text="${staff.gender ? 'Nam' : 'Nữ'}"></span> 
+    </th:block>
+    
+    , $<b th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></b>
+    
+    <th:block th:if="${!st.last}"><hr></th:block>
+</div>
+
+</body>
+</html>
+</body>
+</html>

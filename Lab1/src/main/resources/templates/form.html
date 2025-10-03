@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Đăng Nhập</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng Nhập</h2>
+        <form action="/login/check" method="post">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Đăng nhập">
+        </form>
+
+        <div th:if="${message}" th:classappend="${success} ? 'message success' : 'message error'">
+            <p th:text="${message}"></p>
+        </div>
+    </div>
+</body>
+</html>

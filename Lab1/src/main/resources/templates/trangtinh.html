@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Diện Tích và Chu Vi Hình Chữ Nhật</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Tính Diện Tích & Chu Vi Hình Chữ Nhật</h2>
+         
+        <form action="/tinhToan" method="post">
+            <label for="chieuRong">Chiều rộng:</label>
+            <input type="number" id="chieuRong" name="chieuRong" required>
+
+            <label for="chieuDai">Chiều dài:</label>
+            <input type="number" id="chieuDai" name="chieuDai" required>
+
+            <input type="submit" value="Tính toán">
+        </form>
+        <p th:if="${error}" style="color:red;" th:text="${error}"></p>
+
+        <div th:if="${dienTich}" class="result">
+            <p><strong>Diện tích:</strong> <span th:text="${dienTich}"></span></p>
+            <p><strong>Chu vi:</strong> <span th:text="${chuVi}"></span></p>
+        </div>
+    </div>
+</body>
+</html>
