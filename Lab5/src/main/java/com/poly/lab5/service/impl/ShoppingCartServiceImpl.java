@@ -8,7 +8,6 @@ import org.springframework.web.context.annotation.SessionScope;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @SessionScope
 @Service
