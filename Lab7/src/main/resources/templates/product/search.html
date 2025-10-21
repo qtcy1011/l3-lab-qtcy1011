@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm theo khoảng giá</title>
+</head>
+<body>
+    <h2>Tìm kiếm sản phẩm theo khoảng giá</h2>
+    <form action="/product/search" method="get">
+        <input name="min" th:value="${param.min}" placeholder="Giá tối thiểu?">
+        <input name="max" th:value="${param.max}" placeholder="Giá tối đa?">
+        <button>Search</button>
+    </form>
+
+    <hr>
+
+    <table border="1" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Ngày tạo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.createDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p th:if="${items == null or items.isEmpty()}">Không tìm thấy sản phẩm nào.</p>
+</body>
+</html>

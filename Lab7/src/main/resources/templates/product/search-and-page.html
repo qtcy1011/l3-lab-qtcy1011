@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm và Phân trang</title>
+</head>
+<body>
+    <h2>Tìm kiếm và Phân trang sản phẩm</h2>
+    <form action="/product/search-and-page" method="get">
+        <input name="keywords" th:value="${keywords}" placeholder="Nhập từ khóa...">
+        <button>Search</button>
+    </form>
+
+    <hr>
+
+    <table border="1" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Ngày tạo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item: ${page.content}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.createDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+
+    <a th:href="@{|/product/search-and-page?p=0&keywords=${keywords}|}">First</a>
+    <a th:href="@{|/product/search-and-page?p=${page.number - 1}&keywords=${keywords}|}" 
+       th:if="${page.hasPrevious()}">Previous</a>
+    <a th:href="@{|/product/search-and-page?p=${page.number + 1}&keywords=${keywords}|}"
+       th:if="${page.hasNext()}">Next</a>
+    <a th:href="@{|/product/search-and-page?p=${page.totalPages - 1}&keywords=${keywords}|}"
+       th:if="${page.totalPages > 0}">Last</a>
+
+    <p>Trang [[${page.number}]] / [[${page.totalPages}]] | Tổng [[${page.totalElements}]] sản phẩm</p>
+</body>
+</html>

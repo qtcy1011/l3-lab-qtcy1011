@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Báo cáo tồn kho</title>
+</head>
+<body>
+    <h2>Tổng hợp dữ liệu tồn kho theo loại hàng</h2>
+    <table border="1" style="width:80%; margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Loại hàng</th>
+                <th>Tổng giá</th>
+                <th>Số sản phẩm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.group.name}"></td> 
+                <td th:text="${#numbers.formatDecimal(item.sum, 0, 'COMMA', 2, 'POINT')}"></td>
+                <td th:text="${item.count}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p th:if="${items.isEmpty()}">Không có dữ liệu tồn kho.</p>
+</body>
+</html>

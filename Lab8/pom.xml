@@ -9,7 +9,8 @@
     <groupId>com.poly</groupId>
     <artifactId>Lab8</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Lab8</name> <description>Lab8</description>
+    <name>Lab8</name>
+     <description>Lab8</description>
     <url/>
     <licenses>
         <license/>
