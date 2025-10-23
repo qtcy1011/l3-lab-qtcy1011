@@ -15,7 +15,7 @@ public class ReportController {
     @Autowired
     ProductDAO dao;
 
-    @RequestMapping("/report/inventory-by-category")
+    @RequestMapping("/report/inventory-by-category")	
     public String inventory(Model model) {
         List<Report> items = dao.getInventoryByCategory();
         model.addAttribute("items", items);

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <h1>Đăng nhập hệ thống</h1>
+    
+    <i style="color:red;" th:text="${message}">Error message</i>
+    <br>
+    
+    <form action="/auth/login" method="post">
+        <label>Username:</label>
+        <input name="username" required>
+        <br>
+        <label>Password:</label>
+        <input name="password" type="password" required>
+        <hr>
+        <button type="submit">Login</button>
+    </form>
+    
+    <p>Tài khoản Test: <strong>user/123</strong> (non-admin), <strong>admin/123</strong> (admin)</p>
+    <p>Truy cập thử: <a href="/admin/test">/admin/test</a> (cần admin)</p>
+</body>
+</html>

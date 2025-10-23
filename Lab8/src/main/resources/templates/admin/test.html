@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Test Admin</title>
+    </head>
+<body>
+
+    <header>
+        <h1>Trang Thử Nghiệm của Admin</h1>
+        <hr>
+    </header>
+
+    <main>
+        <p>Đây là nội dung của trang **admin/test.html**.</p>
+        <p>Nếu bạn nhìn thấy trang này, nghĩa là:</p>
+        <ul>
+            <li>✅  Bạn đã định nghĩa **Controller Mapping** cho `/admin/test`.</li>
+            <li>✅  **View Resolver** (Thymeleaf) đã tìm thấy tệp này.</li>
+        </ul>
+        
+        <div th:if="${message}">
+            <h3>Thông báo từ Controller:</h3>
+            <p th:text="${message}"></p>
+        </div>
+        <br>
+        
+        <p>Vui lòng kiểm tra lại **AuthInterceptor** (Bộ chặn xác thực) để đảm bảo trang này được bảo vệ theo yêu cầu của Lab.</p>
+    </main>
+    
+    <footer>
+        <hr>
+        <a th:href="@{/admin/home/index}">Quay lại trang chủ Admin</a>
+    </footer>
+
+</body>
+</html>
